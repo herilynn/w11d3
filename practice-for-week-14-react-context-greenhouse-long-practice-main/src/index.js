@@ -4,13 +4,18 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import ThemeProvider from './context/ThemeContext';
+import ClimateProvider, {HumidityProvider } from './context/ClimateContext';
 
 function Root() {
   return (
       <ThemeProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <ClimateProvider>
+          <HumidityProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </HumidityProvider>
+        </ClimateProvider>
       </ThemeProvider>
   );
 }
